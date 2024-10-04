@@ -1,17 +1,21 @@
 #!/bin/bash
 
-result=()
+n="$1"
 
-for ((i=1; i<=$1; i++)); do
-    if (( i % 3 == 0 && i % 5 == 0 )); then
-        result+=("Fizz Buzz")
-    elif (( i % 3 == 0 )); then
-        result+=("Fizz")
-    elif (( i % 5 == 0 )); then
-        result+=("Buzz")
-    else
-        result+=("$i")
+for ((i=1; i<=n; i++)); do
+    output=""
+    
+    if (( i % 3 == 0 )); then
+        output+="Fizz"
     fi
+    
+    if (( i % 5 == 0 )); then
+        output+=" Buzz"
+    fi
+    
+    if [[ -z "$output" ]]; then
+        output="$i"
+    fi
+    
+    printf "%s\n" "$output"
 done
-
-printf "%s\n" "${result[@]}"
