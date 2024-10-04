@@ -2,22 +2,20 @@
 
 n="$1"
 
-for ((i=1; i<=n; i++)); do
-    output=""
+for (( i=1; i<=n; i++ )); do
+    result=""
 
     if (( i % 3 == 0 )); then
-        output+="Fizz"
+        result+="Fizz"
     fi
 
     if (( i % 5 == 0 )); then
-        output+="Buzz"
+        result+="Buzz"
     fi
 
-    if [[ -z "$output" ]]; then
-        output="$i"
-    else
-        output+=" "
+    if [[ -z "$result" ]]; then
+        result="$i"
     fi
 
-    printf "%s\n" "$output"
+    printf "%s\n" "$result"
 done
