@@ -1,12 +1,7 @@
 #!/usr/bin/bash
-
-
-lines=()
-
+OUT=""
 while IFS= read -r line; do
-    lines+=("$line")  # Добавляем строку в массив
+  OUT="${line}\n${OUT}"
 done
+printf "%b" "$OUT"
 
-for (( i=${#lines[@]}-1; i>=0; i-- )); do
-    echo "${lines[i]}"
-done
