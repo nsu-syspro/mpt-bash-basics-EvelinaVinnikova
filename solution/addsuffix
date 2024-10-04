@@ -1,10 +1,11 @@
 #!/bin/bash
 
-[ "$#" -lt 2 ] && exit 1
-
 suffix="$1"
 shift
 
 for file in "$@"; do
-  [ -e "$file" ] && mv -- "$file" "${file}${suffix}" || exit 1
+  if [ -e "$file" ]; then
+    new_name="${file}${suffix}"
+    mv "$file" "$new_name"
+  fi
 done
