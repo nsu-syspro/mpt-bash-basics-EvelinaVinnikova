@@ -2,10 +2,7 @@
 
 suffix="$1"
 shift
-
 for file in "$@"; do
-  if [ -e "$file" ]; then
     new_name="${file}${suffix}"
     mv "$file" "$new_name"
-  fi
 done
