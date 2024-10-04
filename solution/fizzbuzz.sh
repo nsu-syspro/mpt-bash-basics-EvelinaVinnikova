@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 fizzbuzz() {
     local limit="$1"
