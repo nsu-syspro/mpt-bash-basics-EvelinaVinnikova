@@ -1,8 +1,17 @@
 #!/bin/bash
 
-suffix="$1"
-shift
-for file in "$@"; do
-    new_name="${file}${suffix}"
-    mv "$file" "$new_name"
-done
+add_suffix() {
+    local suffix="$1"
+    shift
+    for file in "$@"; do
+        if [ -e "$file" ]; then
+            mv "$file" "${file}${suffix}"
+        fi
+    done
+}
+
+if [ "$#" -lt 2 ]; then
+    exit 1
+fi
+
+add_suffix "$1" "${@:2}"
