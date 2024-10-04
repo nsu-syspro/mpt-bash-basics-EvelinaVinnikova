@@ -1,7 +1,8 @@
-#!/usr/bin/bash
+#!/bin/bash
+
 OUT=""
 while IFS= read -r line; do
-  OUT="${line}\n${OUT}"
+  OUT="$line"$'\n'"$OUT"
 done
-printf "%b" "$OUT"
 
+printf "%s" "$OUT"
