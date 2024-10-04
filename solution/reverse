@@ -1,0 +1,8 @@
+#!/bin/bash
+
+OUT=""
+while IFS= read -r line; do
+  OUT="$line"$'\n'"$OUT"
+done
+
+printf "%s" "$OUT"
