@@ -1,21 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-n="$1"
+fizzbuzz() {
+    local limit="$1"
+    
+    for (( i = 1; i <= limit; i++ )); do
+        output=""
+        
+        if (( i % 3 == 0 && i % 5 == 0 )); then
+            output="Fizz Buzz"
+        elif (( i % 3 == 0 )); then
+            output="Fizz"
+        elif (( i % 5 == 0 )); then
+            output="Buzz"
+        else
+            output="$i"
+        fi
 
-for (( i=1; i<=n; i++ )); do
-    result=""
-
-    if (( i % 3 == 0 )); then
-        result+="Fizz"
-    fi
-
-    if (( i % 5 == 0 )); then
-        result+="Buzz"
-    fi
-
-    if [[ -z "$result" ]]; then
-        result="$i"
-    fi
-
-    printf "%s\n" "$result"
-done
+        printf "%s\n" "$output"
+    done
+}
